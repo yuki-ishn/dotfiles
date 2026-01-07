@@ -26,6 +26,7 @@ cd ~/dotfiles
 ## Terminal (Ghostty)
 ![Terminal](screenshots/terminal.png)
 
+![Terminal](screenshots/terminal2.png)
 ---
 
 ## Browser / Real-World Apps
