@@ -1,3 +1,4 @@
+
 # Hyprland-Inspired macOS Rice
 
 A heavily **min-maxed macOS setup** inspired by Hyprland —  
@@ -13,8 +14,9 @@ Designed to feel **immediate**, **clean**, and **intentional**.
 git clone https://github.com/ishn-n-personal/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./scripts/install.sh
+```
 
---
+---
 
 ## Desktop
 ![Desktop](screenshots/desktop.png)
@@ -63,7 +65,7 @@ cd ~/dotfiles
 ---
 
 ## Notes
-- Paths may need adjustment depending on system
+- Paths may need adjustment depending on the system
 - macOS scripting addition required for yabai
 - Ghostty shaders are optional and fully modular
 - Installer is safe to re-run (backs up existing files)
