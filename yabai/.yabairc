@@ -1,0 +1,146 @@
+#!/usr/bin/env sh
+
+# Load scripting addition (required for space focus)
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+### ─────────────────────────────────────────────
+### GENERAL
+### ─────────────────────────────────────────────
+
+# Use BSP tiling (Hyprland-style)
+yabai -m config layout bsp
+
+# New windows spawn in a sane position
+yabai -m config window_placement second_child
+
+# Keep layouts balanced automatically
+yabai -m config auto_balance on
+
+# Enable focus follows mouse (very Hyprland-like)
+yabai -m config focus_follows_mouse autoraise
+
+# Mouse behavior (drag to move/resize like Hyprland)
+yabai -m config mouse_follows_focus on
+yabai -m config mouse_modifier alt
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+yabai -m config focus_follows_mouse autoraise
+
+# Disable macOS window animations (important)
+yabai -m config window_animation_duration 0.0
+
+# Opacity control (fake blur feel)
+yabai -m config window_opacity on
+yabai -m rule --add app="Spotify" opacity=0.9
+yabai -m config window_shadow off
+
+# Don’t let windows escape tiling
+yabai -m config split_ratio 0.50
+yabai -m config split_type auto
+
+# New window split direction
+yabai -m config split_child on
+
+### ─────────────────────────────────────────────
+### GAPS (HYPER-TUNED)
+### ─────────────────────────────────────────────
+
+# Outer gaps (screen padding)
+yabai -m config top_padding    18
+yabai -m config bottom_padding 15
+yabai -m config left_padding   15
+yabai -m config right_padding  15
+
+# Inner gaps (between windows)
+yabai -m config window_gap 10
+
+### ─────────────────────────────────────────────
+### SPACE BEHAVIOR (HYPRLAND WORKSPACES)
+### ─────────────────────────────────────────────
+
+# Each display gets its own spaces
+yabai -m config display_arrangement horizontal
+yabai -m config focus_follows_mouse autoraise
+
+# Prevent macOS auto-space nonsense
+yabai -m config auto_assign_display off
+
+### ─────────────────────────────────────────────
+### FLOATING RULES (ESSENTIAL)
+### ─────────────────────────────────────────────
+
+# System dialogs
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^System Information$" manage=off
+
+# Utility apps
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Preview$" manage=off
+yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^Disk Utility$" manage=off
+
+# Media
+yabai -m rule --add app="^Music$" manage=off
+yabai -m rule --add app="^Photos$" manage=off
+
+# Popups / dialogs
+yabai -m rule --add title="Preferences" manage=off
+yabai -m rule --add title="Settings" manage=off
+
+### ─────────────────────────────────────────────
+### FORCE-TILING RULES
+### ─────────────────────────────────────────────
+
+# Browsers
+yabai -m rule --add app="^Arc$" manage=on
+yabai -m rule --add app="^Safari$" manage=on
+yabai -m rule --add app="^Firefox$" manage=on
+
+# Dev tools
+yabai -m rule --add app="^Alacritty$" manage=on
+yabai -m rule --add app="^WezTerm$" manage=on
+yabai -m rule --add app="^Kitty$" manage=on
+yabai -m rule --add app="^Visual Studio Code$" manage=on
+yabai -m rule --add app="^Xcode$" manage=on
+
+# Communication
+yabai -m rule --add app="^Discord$" manage=on
+yabai -m rule --add app="^Slack$" manage=on
+
+# Other
+yabai -m rule --add app="League of Legends" manage=off
+
+
+### ─────────────────────────────────────────────
+### SMART BEHAVIOR
+### ─────────────────────────────────────────────
+
+# Make floating windows stay above
+yabai -m config window_topmost on
+
+# Prevent accidental fullscreen abuse
+yabai -m config window_shadow float
+
+### ─────────────────────────────────────────────
+### SIGNALS (ADVANCED / HYPRLAND-LIKE POLISH)
+### ─────────────────────────────────────────────
+
+# Re-balance space after window destroy
+yabai -m signal --add event=window_destroyed action="yabai -m space --balance"
+
+# Re-balance space after window created
+yabai -m signal --add event=window_created action="yabai -m space --balance"
+
+# Auto-focus newest window
+yabai -m signal --add event=window_created action="yabai -m window --focus"
+
+# SketchyBar space indicators
+yabai -m signal --add event=space_changed action="sketchybar --trigger space_change"
+yabai -m signal --add event=display_changed action="sketchybar --trigger space_change"
+
+### ─────────────────────────────────────────────
+### DONE
+### ─────────────────────────────────────────────
+
+echo "yabai: Hyprland-style config loaded"

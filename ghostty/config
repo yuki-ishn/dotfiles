@@ -1,0 +1,100 @@
+# Run neofetch only for the first Ghostty window
+initial-command = "zsh -lc 'neofetch; exec zsh'"
+
+# Reload config with shift + cmd + ,
+theme = TokyoNight Night
+
+# --- Visuals / Glass ---
+background = #0D1124
+background-opacity = 0.6
+background-blur = 250
+background-opacity-cells = true
+window-colorspace = display-p3
+
+# Prevent tearing + smoother window movement
+resize-overlay = never
+
+# Borderless floating look
+window-decoration = none
+macos-titlebar-style = transparent
+unfocused-split-opacity = 0.8
+unfocused-split-fill = #000000
+
+# --- Font ---
+font-family = JetBrainsMonoNL Nerd Font
+font-style = medium
+font-size = 14
+font-thicken = false
+font-synthetic-style = false
+
+# Font shaping (smoother glyphs)
+font-feature = liga
+font-feature = calt
+font-feature = ss01
+
+# --- Cursor ---
+cursor-style = bar
+cursor-style-blink = true
+cursor-color = cell-foreground
+cursor-text = cell-background
+
+# --- Input / UX ---
+macos-option-as-alt = true
+mouse-hide-while-typing = true
+focus-follows-mouse = true
+
+# --- Window Behavior ---
+confirm-close-surface = false
+window-padding-x = 2
+window-padding-y = 2
+window-padding-balance = false
+
+# --- Updates ---
+auto-update = check
+auto-update-channel = stable
+
+# --- Extras ---
+shell-integration-features = no-cursor
+copy-on-select = clipboard
+
+# --- Custom Keybinds ---
+# super represents cmd key on mac
+
+# Simple Keybinds
+keybind = super+i=inspector:toggle
+keybind = super+b>,=toggle_quick_terminal
+
+# Ghostty "tmux-like" workflow
+# (ctrl+b in tmux -> cmd+b in ghostty)
+keybind = super+b>r=reload_config
+keybind = super+b>x=close_surface
+
+# Tabs / Windows
+keybind = super+b>c=new_tab
+keybind = super+b>n=new_window
+
+# Tab navigation
+keybind = super+b>1=goto_tab:1
+keybind = super+b>2=goto_tab:2
+keybind = super+b>3=goto_tab:3
+keybind = super+b>4=goto_tab:4
+keybind = super+b>5=goto_tab:5
+keybind = super+b>6=goto_tab:6
+keybind = super+b>7=goto_tab:7
+keybind = super+b>8=goto_tab:8
+keybind = super+b>9=goto_tab:9
+
+# Splitting
+keybind = super+b>\=new_split:right
+keybind = super+b>-=new_split:down
+keybind = super+b>e=equalize_splits
+
+# Split navigation (hjkl)
+keybind = super+b>h=goto_split:left
+keybind = super+b>j=goto_split:bottom
+keybind = super+b>k=goto_split:top
+keybind = super+b>l=goto_split:right
+
+# --- Shaders (optional, subtle recommended) ---
+custom-shader = shaders/cursor_tail.glsl
+custom-shader-animation = true

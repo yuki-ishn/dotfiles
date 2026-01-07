@@ -1,0 +1,20 @@
+# macOS junk
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor / temp files
+*.swp
+*.tmp
+*~
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Installer backups (if ever created locally)
+.dotfiles-backup/
+
+# Optional local-only files
+.env
