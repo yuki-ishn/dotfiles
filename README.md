@@ -8,7 +8,7 @@ Designed to feel **immediate**, **clean**, and **intentional**.
 
 ---
 
-## Installation
+## Install
 
 ```bash
 git clone https://github.com/yuki-ishn/dotfiles.git ~/dotfiles
@@ -18,10 +18,9 @@ cd ~/dotfiles
 
 ---
 
-## Uninstallation
+## Uninstall
 
 ```bash
-git clone https://github.com/yuki-ishn/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./scripts/uninstall.sh
 ```
