@@ -16,6 +16,9 @@ cd ~/dotfiles
 ./scripts/install.sh
 ```
 
+For a detailed explanation of what the installer does and how to reverse it,  
+see `scripts/README.md`.
+
 ---
 
 ## Uninstall
