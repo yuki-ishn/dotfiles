@@ -89,9 +89,11 @@ Uninstall:
 
 Both scripts can be tested safely using a temporary home directory:
 
+```bash
 mkdir -p /tmp/dotfiles-test-home
 HOME=/tmp/dotfiles-test-home ./install.sh
 HOME=/tmp/dotfiles-test-home ./uninstall.sh
+```
 
 This ensures zero impact on your real system.
 
