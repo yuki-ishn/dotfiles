@@ -22,6 +22,8 @@ export TN_BORDER=0xff3b4261
 
 # Item/icon/label color (dark text on bright accent backgrounds)
 export ITEM_COLOR=0xff15161e   # crust (near-black)
+export ITEM_COLOR_DIM=0xff6b7089
+
 # Accent/background color for item highlights
 export ACCENT_COLOR=0xffffffff # white
 
